@@ -79,7 +79,13 @@ fun seconds(hours: Int, minutes: Int, seconds: Int): Int {
  * Определить длину того же отрезка в метрах (в данном случае 18.98).
  * 1 сажень = 3 аршина = 48 вершков, 1 вершок = 4.445 см.
  */
-fun lengthInMeters(sagenes: Int, arshins: Int, vershoks: Int): Double = TODO()
+fun lengthInMeters(sagenes: Int, arshins: Int, vershoks: Int): Double {
+    val x = sagenes * 48
+    val y = arshins * 16
+    val z = x + y + vershoks
+    val a = z * 4.445 / 100
+    return a
+}
 
 /**
  * Тривиальная (1 балл)
@@ -87,7 +93,13 @@ fun lengthInMeters(sagenes: Int, arshins: Int, vershoks: Int): Double = TODO()
  * Пользователь задает угол в градусах, минутах и секундах (например, 36 градусов 14 минут 35 секунд).
  * Вывести значение того же угла в радианах (например, 0.63256).
  */
-fun angleInRadian(deg: Int, min: Int, sec: Int): Double = TODO()
+fun angleInRadian(deg: Int, min: Int, sec: Int): Double {
+    val x = deg * 0.017453292519943295
+    val y = min * 0.0002908882086657216
+    val z = sec * 0.00000484813681109536
+    val a = x + y + z
+    return a
+}
 
 /**
  * Тривиальная (1 балл)
@@ -103,7 +115,11 @@ fun trackLength(x1: Double, y1: Double, x2: Double, y2: Double): Double = TODO()
  * Пользователь задает целое число, большее 100 (например, 3801).
  * Определить третью цифру справа в этом числе (в данном случае 8).
  */
-fun thirdDigit(number: Int): Int = TODO()
+fun thirdDigit(number: Int): Int {
+    val x = number % 1000
+    val y = x / 100
+    return y
+}
 
 /**
  * Простая (2 балла)
