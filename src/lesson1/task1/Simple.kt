@@ -97,8 +97,7 @@ fun angleInRadian(deg: Int, min: Int, sec: Int): Double {
     val x = deg * 0.017453292519943295
     val y = min * 0.0002908882086657216
     val z = sec * 0.00000484813681109536
-    val a = x + y + z
-    return a
+    return  x + y + z
 }
 
 /**
