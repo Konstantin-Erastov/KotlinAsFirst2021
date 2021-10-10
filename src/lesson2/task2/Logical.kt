@@ -60,10 +60,14 @@ fun circleInside(
  * Вернуть true, если кирпич пройдёт
  */
 fun brickPasses(a: Int, b: Int, c: Int, r: Int, s: Int): Boolean {
-        val min = if (a < b) a else b
+    val min = if (a < b) a else b
     val min2 = if (min < c) min else c
     if (min == min2) {
-        min == if (a < b) a else b
+        if (a < b) {
+            (min == a)
+        }
+        else (min == b)
+
     }
     val z = if ((min2 * min) <= (r * s)) true else false
     return z
