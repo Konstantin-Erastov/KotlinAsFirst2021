@@ -62,6 +62,9 @@ fun circleInside(
 fun brickPasses(a: Int, b: Int, c: Int, r: Int, s: Int): Boolean {
         val min = if (a < b) a else b
     val min2 = if (min < c) min else c
+    if (min == min2) {
+        min == if (a < b) a else b
+    }
     val z = if ((min2 * min) <= (r * s)) true else false
     return z
 }
