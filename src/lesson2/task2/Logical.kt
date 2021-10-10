@@ -70,5 +70,5 @@ fun brickPasses(a: Int, b: Int, c: Int, r: Int, s: Int): Boolean {
 
     }
     val z = if ((min2 * min) <= (r * s)) true else false
-    return z
+    return false
 }
