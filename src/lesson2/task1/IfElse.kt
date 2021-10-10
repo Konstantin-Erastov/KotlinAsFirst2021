@@ -75,7 +75,9 @@ fun ageDescription(age: Int): String {
         return "$age год"
     }    else if (age / 10 % 10 == 9) {
         return "$age лет"
-    }        else return "$age года"
+    }    else if ((age >= 5) and (age <= 10)) {
+        return "$age лет"
+    }    else return "$age года"
 
 }
 /**
@@ -143,14 +145,14 @@ fun triangleKind(a: Double, b: Double, c: Double): Int = TODO()
 fun segmentLength(a: Int, b: Int, c: Int, d: Int): Int {
     if ((b == c) or (a == d)) {
         return 0
-    } else if ((b < c) or (a > d)) {
+    } else if ((b <= c) or (a >= d)) {
         return -1
-    } else if ((a > c) and (b < d)) {
+    } else if ((a >= c) and (b <= d)) {
         return (b - a)
-    } else if ((c > a) and (d < b)) {
+    } else if ((c >= a) and (d <= b)) {
         return (d - c)
-    } else if ((c > a) and (d > b)) {
+    } else if ((c >= a) and (d >= b)) {
         return (b - c)
-    } else return (d -a)
+    } else return (d - a)
 }
 
