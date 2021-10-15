@@ -66,9 +66,7 @@ fun main() {
  * Рассчитать время в секундах, прошедшее с начала суток (30035 в данном случае).
  */
 fun seconds(hours: Int, minutes: Int, seconds: Int): Int {
-    val x = hours * 3600
-    val y = minutes * 60
-    return x + y + seconds
+    return hours * 3600 + minutes * 60 + seconds
 }
 
 
@@ -94,10 +92,7 @@ fun lengthInMeters(sagenes: Int, arshins: Int, vershoks: Int): Double {
  * Вывести значение того же угла в радианах (например, 0.63256).
  */
 fun angleInRadian(deg: Int, min: Int, sec: Int): Double {
-    val x = deg * 0.017453292519943295
-    val y = min * 0.0002908882086657216
-    val z = sec * 0.00000484813681109536
-    return  x + y + z
+    return (deg + (min / 60.0) + (sec / 3600.0)) / 180.0 * PI
 }
 
 /**
@@ -115,9 +110,7 @@ fun trackLength(x1: Double, y1: Double, x2: Double, y2: Double): Double = TODO()
  * Определить третью цифру справа в этом числе (в данном случае 8).
  */
 fun thirdDigit(number: Int): Int {
-    val x = number % 1000
-    val y = x / 100
-    return y
+    return number % 1000 / 100
 }
 
 /**
