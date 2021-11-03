@@ -129,19 +129,7 @@ fun collatzSteps(x: Int): Int = TODO()
  * Для заданных чисел m и n найти наименьшее общее кратное, то есть,
  * минимальное число k, которое делится и на m и на n без остатка
  */
-fun lcm(m: Int, n: Int): Int {
-var a = m
-var b = n
-    var z = 0
-    while (a != b)
-              if (a > b)
-             a = a - b
-         else
-             b = b - a
-     z = (n * m) / a
-
-     return z
- }
+fun lcm(m: Int, n: Int): Int = TODO()
 
 
 /**
@@ -192,8 +180,19 @@ fun hasDifferentDigits(n: Int): Boolean = TODO()
  * Подумайте, как добиться более быстрой сходимости ряда при больших значениях x.
  * Использовать kotlin.math.sin и другие стандартные реализации функции синуса в этой задаче запрещается.
  */
-fun sin(x: Double, eps: Double): Double = TODO()
 
+fun sin(x: Double, eps: Double): Double {
+    var sin = x % (2 * Math.PI)
+    val constantSinus = sin
+    var equal = sin
+    var n = 1
+    do {
+        equal = equal * constantSinus / (((4 * n * n)) + 2 * n) * constantSinus * (-1)
+        n = n + 1
+        sin = sin + equal
+    } while (Math.abs(equal) >= eps)
+    return sin
+}
 /**
  * Средняя (4 балла)
  *
@@ -203,8 +202,18 @@ fun sin(x: Double, eps: Double): Double = TODO()
  * Подумайте, как добиться более быстрой сходимости ряда при больших значениях x.
  * Использовать kotlin.math.cos и другие стандартные реализации функции косинуса в этой задаче запрещается.
  */
-fun cos(x: Double, eps: Double): Double = TODO()
-
+fun cos(x: Double, eps: Double): Double {
+    var cos = 1.0
+    val constantCos = x % (2 * Math.PI)
+    var equal = 1.0
+    var n = 1.0
+    do {
+        equal = equal * constantCos / ((4 * n * n) - 2 * n) * constantCos * (-1)
+        n = n + 1
+        cos = cos + equal
+    } while (Math.abs(equal) >= eps)
+    return cos
+}
 /**
  * Сложная (4 балла)
  *
