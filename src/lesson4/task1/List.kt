@@ -169,7 +169,7 @@ fun polynom(p: List<Int>, x: Int): Int = TODO()
  * Обратите внимание, что данная функция должна изменять содержание списка list, а не его копии.
  */
 fun accumulate(list: MutableList<Int>): MutableList<Int> {
-    var n = list.size
+    val n = list.size
     var i = 1
     when {
         list.isNotEmpty() -> {
@@ -177,7 +177,6 @@ fun accumulate(list: MutableList<Int>): MutableList<Int> {
                 list[i] = list[i] + list[i - 1]
                 i += 1
             }
-            list
         }
     }
     return list
@@ -192,7 +191,7 @@ fun accumulate(list: MutableList<Int>): MutableList<Int> {
 fun factorize(n: Int): List<Int> {
     var m = n
     var factor = 2
-    var list = mutableListOf<Int>()
+    val list = mutableListOf<Int>()
     do {
         if (m % factor !== 0) {
             factor += 1
