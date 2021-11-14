@@ -184,13 +184,17 @@ fun averageStockPrice(stockPrices: List<Pair<String, Double>>): Map<String, Doub
  *   ) -> "Мария"
  */
 fun findCheapestStuff(stuff: Map<String, Pair<String, Double>>, kind: String): String? {
-    val price = 0
+    var cost = 0.0
+    var tag = ""
     for ((i) in stuff)
-        if ((stuff[i]?.first == kind) && ((price > 0) || (price < (stuff[i]?.second?: return null)))) {
-            price < (stuff[i]?.second?: return null)
-            return i
+        if ((stuff[i]?.first == kind) && ((cost == 0.0) || (cost > (stuff[i]?.second?: return tag)))) {
+            cost = (stuff[i]?.second?: return tag)
+            tag = i
         }
-    return null
+if (tag == "") {
+return null
+}
+    return tag
 }
 /**
  * Средняя (3 балла)
