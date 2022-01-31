@@ -75,9 +75,9 @@ fun deleteMarked(inputName: String, outputName: String) {
  * Регистр букв игнорировать, то есть буквы е и Е считать одинаковыми.
  *
  */
-fun countSubstrings(inputName: String, substrings: List<String>): Map<String, Int> = TODO()
-
-
+fun countSubstrings(inputName: String, substrings: List<String>): Map<String, Int> {
+    TODO()
+}
 /**
  * Средняя (12 баллов)
  *
@@ -248,7 +248,23 @@ fun transliterate(inputName: String, dictionary: Map<Char, String>, outputName: 
  * Обратите внимание: данная функция не имеет возвращаемого значения
  */
 fun chooseLongestChaoticWord(inputName: String, outputName: String) {
-    TODO()
+    var max = 0
+    val neededWord = File(outputName).bufferedWriter()
+    val worseWord = StringBuilder()
+    for (oneWord in File(inputName).readLines()) {
+        var x = oneWord.count()
+        val register = mutableSetOf<Char>()
+        for (i in oneWord) {
+            register.add(i.toLowerCase())
+            if (register.size == x && x > max) {
+                worseWord.append(oneWord)
+                max = x
+            } else if (register.size == x && x == max)
+                worseWord.append(", " + oneWord)
+        }
+    }
+    neededWord.write(worseWord.toString())
+    neededWord.close()
 }
 
 /**
