@@ -257,7 +257,7 @@ fun chooseLongestChaoticWord(inputName: String, outputName: String) {
         for (i in oneWord) {
             register.add(i.toLowerCase())
             if (register.size == x && x > max) {
-                worseWord.append(oneWord)
+                worseWord.clear().append(oneWord)
                 max = x
             } else if (register.size == x && x == max)
                 worseWord.append(", " + oneWord)
@@ -266,6 +266,7 @@ fun chooseLongestChaoticWord(inputName: String, outputName: String) {
     neededWord.write(worseWord.toString())
     neededWord.close()
 }
+
 
 /**
  * Сложная (22 балла)
