@@ -192,9 +192,7 @@ fun findCheapestStuff(stuff: Map<String, Pair<String, Double>>, kind: String): S
                 cost = (stuff[i]?.second ?: return null)
             tag = i
         }
-    if (tag == "") {
-        return null
-    }
+
     return tag
 }
 /**
