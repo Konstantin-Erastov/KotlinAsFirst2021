@@ -188,7 +188,8 @@ fun findCheapestStuff(stuff: Map<String, Pair<String, Double>>, kind: String): S
     var tag = ""
     for ((i) in stuff)
         if ((stuff[i]?.first == kind) && ((cost == 0.0))) {
-            cost = (stuff[i]?.second ?: return null)
+            if (cost < (stuff[i]?.second ?: return null))
+                cost = (stuff[i]?.second ?: return null)
             tag = i
         }
     if (tag == "") {
