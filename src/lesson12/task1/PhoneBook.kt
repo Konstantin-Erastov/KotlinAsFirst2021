@@ -88,11 +88,9 @@ class PhoneBook {
      * Если такого номера нет в книге, вернуть null.
      */
     fun humanByPhone(phone: String): String? {
-        book.forEach {
-            val phones = it.value
-            if (phones.contains(phone)) return it.key
-        }
-        return null
+        return book.entries.firstOrNull {
+            it.value.contains(phone)
+        }?.key
     }
 
     /**
@@ -104,17 +102,7 @@ class PhoneBook {
         if (this === other) return true
         if (other?.javaClass != javaClass) return false
         other as PhoneBook
-        if (other.book.size != book.size) return false
-        book.forEach {
-            if (!other.book.containsKey(it.key)) return false
-            val phones = it.value
-            val otherPhones = other.book[it.key]!!
-            if (phones.size != otherPhones.size) return false
-            phones.forEach { it ->
-                if (!otherPhones.contains(it)) return false
-            }
-        }
-        return true
+        return other.book == book
     }
 
     override fun hashCode(): Int = book.hashCode()
