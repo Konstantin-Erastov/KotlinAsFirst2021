@@ -2,24 +2,36 @@
 
 package lesson11.task1
 
+import java.text.ParseException
+
 /**
  * Фабричный метод для создания комплексного числа из строки вида x+yi
  */
 fun Complex(s: String): Complex {
+
     var str = s.trim()
-    val a = str.split("+", "-", "i").filter { it.isNotBlank() }
-    var re = a[0].toDouble()
-    if (str[0] == '-') {
-        re = -re
-
+    if ("++" in str || "--" in str || "-+" in str || "+-" in str) {
+        throw ParseException("String must be in form: x+yi", -1)
     }
-
-    var im = a[1].toDouble()
-    str = str.substring(1)
-    if ('+' !in str) {
-        im = -im
+    if (!str.endsWith("i")) {
+        throw ParseException("String must be terminated by: i", -1)
     }
-    return Complex(re, im)
+    try {
+        val a = str.split("+", "-", "i").filter { it.isNotBlank() }
+        var re = a[0].toDouble()
+        if (str[0] == '-') {
+            re = -re
+        }
+
+        var im = a[1].toDouble()
+        str = str.substring(1)
+        if ('+' !in str) {
+            im = -im
+        }
+        return Complex(re, im)
+    } catch (e: Exception) {
+        throw ParseException(e.message, -1)
+    }
 }
 
 /**

@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Tag
+import java.text.ParseException
 
 internal class ComplexTest {
 
@@ -55,6 +56,15 @@ internal class ComplexTest {
         assertApproxEquals(Complex(-1.0, -2.0), Complex("-1-2i"), 1e-12)
         assertApproxEquals(Complex(1.0, 2.0), Complex("+1+2i"), 1e-12)
         assertApproxEquals(Complex(-1.0, 2.0), Complex("-1+2i"), 1e-12)
+        assertThrows(ParseException::class.java) { Complex("") }
+        assertThrows(ParseException::class.java) { Complex("i") }
+        assertThrows(ParseException::class.java) { Complex("1i") }
+        assertThrows(ParseException::class.java) { Complex("1") }
+        assertThrows(ParseException::class.java) { Complex("1++2i") }
+        assertThrows(ParseException::class.java) { Complex("1+2i+") }
+        assertThrows(ParseException::class.java) { Complex("#1+2i") }
+        assertThrows(ParseException::class.java) { Complex("1+ii") }
+        assertThrows(ParseException::class.java) { Complex("1-i") }
     }
 
     @Test
